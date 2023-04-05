@@ -80,7 +80,7 @@ export default function Hero() {
         <div className={classes.inner}>
           <div className={classes.content}>
             <Title className={classes.title}>
-              <span className={classes.highlight}>YakGPT</span>
+              <span className={classes.highlight}>voiceGPT</span>
             </Title>
             <Text color="dimmed" mt="md">
               A simple ChatGPT UI.
@@ -120,6 +120,17 @@ export default function Hero() {
                 onClick={open}
               >
                 Enter API Key
+              </Button>
+              <Button
+                component="a"
+                href="https://github.com/christophercelaya/voiceGPT"
+                variant="default"
+                radius="xl"
+                size="md"
+                className={classes.control}
+                leftIcon={<IconBrandGithub size={20} />}
+              >
+                Source Code
               </Button>
             </Group>
           </div>
