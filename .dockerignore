@@ -1,10 +1,12 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+Dockerfile
+.dockerignore
+README.md
+.git
 
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
-/.yarn
 
 # testing
 /coverage
@@ -26,8 +28,8 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files
-.env*
+# local env files
+.env*.local
 
 # vercel
 .vercel

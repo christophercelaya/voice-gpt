@@ -5,12 +5,13 @@ A simple, locally running ChatGPT UI that makes your text generation faster and 
 ## Features
 
 - **GPT 3.5 & GPT 4** via OpenAI API
-- **Speech-to-Text** via OpenAI Whisper
-- **Text-to-Speech** via Eleven Labs
+- **Speech-to-Text** via Azure & OpenAI Whisper
+- **Text-to-Speech** via Azure & Eleven Labs
 - Run locally on browser – no need to install any applications
 - Faster than the official UI – connect directly to the API
 - Easy mic integration – no more typing!
 - Use your own API key – ensure your data privacy and security
+- Data submitted via the API is not used for training and stored for 30 days only
 - All state stored locally in localStorage – no analytics or external service calls
 - Access on https://yakgpt.vercel.app or run locally!
 
@@ -63,22 +64,25 @@ To utilize YakGPT, you'll need to acquire an API key for OpenAI. The app should 
 If you want the keys to persist across app builds, you can add it to the .env.local.
 
 ```
-echo "NEXT_PUBLIC_OPENAI_API_KEY=<your-open-ai-key-here>" > .env.local
-echo "NEXT_PUBLIC_11LABS_API_KEY=<your-eleven-labs-key-here>" >> .env.local
+$ echo "NEXT_PUBLIC_OPENAI_API_KEY=<your-open-ai-key-here>" > .env.local
+$ echo "NEXT_PUBLIC_11LABS_API_KEY=<your-eleven-labs-key-here>" >> .env.local
 ```
 
 ## 🐳 Docker
 
-To build a Docker image, run:
+To use the pre-built Docker image from Docker Hub (only for amd64), run:
 
 ```
-docker build -t yakgpt:latest .
+$ docker run -it -p 3000:3000 yakgpt/yakgpt:latest
 ```
 
-To run in a container:
+---
+
+To build the Docker image yourself (such as if you're on arm64), run:
 
 ```
-docker run -it -p 3000:3000 yakgpt:latest
+$ docker build -t yakgpt:latest .
+$ docker run -it -p 3000:3000 yakgpt:latest
 ```
 
 ## 🎤 Microphone Integration

@@ -13,14 +13,14 @@ import { useChatStore } from "@/stores/ChatStore";
 
 import Nav from "@/components/Nav";
 import { useEffect, useState } from "react";
-import AudioPlayer from "@/components/AudioPlayer";
 import UIController from "@/components/UIController";
+import { setColorScheme } from "@/stores/ChatActions";
+import AudioPlayer from "@/components/AudioPlayer";
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
 
   const colorScheme = useChatStore((state) => state.colorScheme);
-  const setColorScheme = useChatStore((state) => state.setColorScheme);
 
   const toggleColorScheme = (value?: ColorScheme) => {
     const nextColorScheme =

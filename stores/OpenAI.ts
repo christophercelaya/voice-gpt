@@ -43,7 +43,6 @@ export async function testKey(key: string): Promise<boolean> {
 export async function fetchModels(key: string): Promise<string[]> {
   try {
     const res = await fetchFromAPI("https://api.openai.com/v1/models", key);
-    console.log(res.data.data);
     return res.data.data.map((model: any) => model.id);
   } catch (e) {
     return [];
@@ -130,9 +129,6 @@ export async function streamCompletion(
     modelInfo.maxTokens,
     params.max_tokens
   );
-
-  console.log(`Sending ${submitMessages.length} messages:`);
-  console.log(submitMessages.map((m) => m.content.slice(0, 50)).join("\n"));
 
   const submitParams = Object.fromEntries(
     Object.entries(params).filter(([key]) => paramKeys.includes(key))
